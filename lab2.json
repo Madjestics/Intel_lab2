@@ -1,0 +1,118 @@
+{
+	"rules":
+	[
+		{
+		"if": ["and",["fact_not_exist", "solve"], ["fact_not_exist", "solution"]],
+		"action": [["print", "Хорошо решаете уравнения? "], ["assign", "solve", "input"]]
+		},
+		{
+		"if": ["and",["fact_not_exist", "memorize"], ["fact_not_exist", "solution"]],
+		"action": [["print", "Хорошо запоминаете формулы? "],["assign", "memorize", "input"]]
+		},
+		{
+		"if": ["and", ["equal", "solve", true], ["equal", "memorize", true], ["fact_not_exist", "good_solving"], ["fact_not_exist", "solution"]],
+		"action": [["print", "Хорошо решаете физические задачи!\n"],["assign", "good_solving", true]]
+		},
+		{
+		"if": ["and",["fact_not_exist", "watch"], ["fact_not_exist", "solution"]],
+		"action": [["print", "Любите наблюдать физические явления? "],["assign", "watch", "input" ]]
+		},
+		{
+		"if": ["and", ["equal", "watch", true], ["equal", "good_solving", true], ["fact_not_exist", "physics"], ["fact_not_exist", "solution"]],
+		"action": [["print", "Выбирайте физику!\n"],["assign", "physics", true]]
+		},
+
+		{
+		"if": ["and",["fact_not_exist", "work_with_numbers"], ["fact_not_exist", "solution"]],
+		"action": [["print", "Нравится работать с числами? "], ["assign", "work_with_numbers", "input"]]
+		},
+		{
+		"if": ["and", ["equal", "work_with_numbers", true], ["fact_not_exist", "count"], ["fact_not_exist", "solution"]],
+		"action": [["print", "Любите считать!\n"],["assign", "count", true]]
+		},
+		{
+		"if": ["and", ["equal", "count", true], ["equal", "memorize", true], ["fact_not_exist", "love_algebra"], ["fact_not_exist", "solution"]],
+		"action": [["print", "Любите алгебру!\n"],["assign", "love_algebra", true]]
+		},
+		{
+		"if": ["and", ["fact_not_exist", "geometry_figure"], ["fact_not_exist", "solution"]],
+		"action": [["print", "Любите работать с геом. фигурами? "],["assign", "geometry_figure", "input" ]]
+		},
+		{
+		"if": ["and", ["or",["equal", "count", true], ["equal", "geometry_figure", true]], ["fact_not_exist", "love_geometry"], ["fact_not_exist", "solution"]],
+		"action": [["print", "Любите геометрию!\n"],["assign", "love_geometry", true]]
+		},
+		{
+		"if": ["and", ["fact_not_exist", "algebra_mark"],["fact_not_exist", "solution"]],
+		"action": [["print", "Введите средний балл по алгебре: "],["assign", "algebra_mark", "input_num" ]]
+		},
+		{
+		"if": ["and",["fact_not_exist", "geometry_mark"], ["fact_not_exist", "solution"]],
+		"action": [["print", "Введите средний балл по геометрии: "],["assign", "geometry_mark", "input_num" ]]
+		},
+		{
+		"if": ["and", ["more", "algebra_mark", 4], ["less", "algebra_mark", 5], ["fact_not_exist", "algebra_good"], ["fact_not_exist", "solution"]],
+		"action": [["print", "Хороший средний балл по алгебре!\n"],["assign", "algebra_good", true]]
+		},
+		{
+		"if": ["and", ["more", "geometry_mark", 4], ["less", "geometry_mark", 5], ["fact_not_exist", "geometry_good"], ["fact_not_exist", "solution"]],
+		"action": [["print", "Хороший средний балл по геометрии!\n"],["assign", "geometry_good", true]]
+		},
+		{
+		"if": ["and", ["more", "algebra_mark", 1], ["less", "algebra_mark", 3.9], ["fact_not_exist", "algebra_good"], ["fact_not_exist", "solution"]],
+		"action": [["print", "Плохой средний балл по алгебре!\n"],["assign", "algebra_good", false]]
+		},
+		{
+		"if": ["and", ["more", "geometry_mark", 1], ["less", "geometry_mark", 3.9], ["fact_not_exist", "geometry_good"], ["fact_not_exist", "solution"]],
+		"action": [["print", "Плохой средний балл по геометрии!\n"],["assign", "geometry_good", false]]
+		},
+		{
+		"if": ["and", ["equal", "algebra_good", true], ["equal", "geometry_good", true], ["fact_not_exist", "good_math_mark"], ["fact_not_exist", "solution"]],
+		"action": [["print", "Хороший балл по математике!\n"],["assign", "good_math_mark", true]]
+		},
+		{
+		"if": ["and", ["equal", "algebra_good", false], ["equal", "geometry_good", false], ["fact_not_exist", "not_good_math_mark"], ["fact_not_exist", "solution"]],
+		"action": [["print", "Плохой балл по математике!\n"],["assign", "not_good_math_mark", true]]
+		},
+		{
+		"if": ["and", ["equal", "good_math_mark", true], ["equal", "love_algebra", true], ["equal", "love_geometry", true], ["fact_not_exist", "choose_math"], ["fact_not_exist", "solution"]],
+		"action": [["print", "Выбирайте математику!\n"],["assign", "choose_math", true]]
+		},
+		{
+		"if": ["and", ["or",["equal", "physics", true], ["equal", "choose_math", true]], ["fact_not_exist", "solution"]],
+		"action": [["print", "Ваш выбор - техническая специальность!\n"],["assign", "solution", true]]
+		},
+		{
+		"if": ["and",["fact_not_exist", "read_many"], ["fact_not_exist", "solution"]],
+		"action": [["print", "Прочли много книг? "],["assign", "read_many", "input" ]]
+		},
+		{
+		"if": ["and", ["equal", "read_many", true], ["fact_not_exist", "love_reading"], ["fact_not_exist", "solution"]],
+		"action": [["print", "Любите читать!\n"],["assign", "love_reading", true]]
+		},
+		{
+		"if": ["and",["fact_not_exist", "delve_content"], ["fact_not_exist", "solution"]],
+		"action": [["print", "Внимательно вникаете в содержание книги? "],["assign", "delve_content", "input" ]]
+		},
+		{
+		"if": ["and", ["equal", "delve_content", true], ["equal", "love_reading", true], ["equal", "not_good_math_mark", true], ["fact_not_exist", "choose_literature"], ["fact_not_exist", "solution"]],
+		"action": [["print", "Выбирайте литературу!\n"],["assign", "choose_literature", true]]
+		},
+		{
+		"if": ["and", ["fact_not_exist", "remember_rules"], ["fact_not_exist", "solution"]],
+		"action": [["print", "Помните правила написания? "],["assign", "remember_rules", "input" ]]
+		},
+		{
+		"if": ["and", ["fact_not_exist", "remember_exceptions"],["fact_not_exist", "solution"]],
+		"action": [["print", "Хорошо запоминаете исключения? "],["assign", "remember_exceptions", "input" ]]
+		},
+		{
+		"if": ["and", ["equal", "remember_exceptions", true], ["equal", "remember_rules", true], ["fact_not_exist", "good_russian"], ["fact_not_exist", "solution"]],
+		"action": [["print", "Хорошо знаете русский!\n"],["assign", "good_russian", true]]
+		},
+		{
+		"if": ["and", ["equal", "choose_literature", true], ["equal", "good_russian", true], ["fact_not_exist", "solution"]],
+		"action": [["print", "Ваш выбор - гуманитарная специальность!\n"],["assign", "solution", true]]
+		}
+	]
+}
